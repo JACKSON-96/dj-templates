@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'mysite',
 ]
 
 MIDDLEWARE = [
@@ -91,3 +92,15 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redirecionamento para a página de login ao acessar uma página protegida
+LOGIN_URL = '/login/'
+
+# Redirecionamento para esta página após o login bem-sucedido
+LOGIN_REDIRECT_URL = '/home/'
+
+# Backends de autenticação
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Backend de autenticação padrão do Django
+    # Adicione outros backends de autenticação, se necessário
+]

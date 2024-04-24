@@ -1,8 +1,7 @@
- 
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    # Outras URLs do aplicativo "blog"
+    path('post/<slug:slug>/', views.post_detail, name='post_detail'),
+    # Outras URLs do seu aplicativo...
 ]

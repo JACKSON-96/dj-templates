@@ -1,12 +1,9 @@
-from django.urls import path
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf import settings
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    # Outros padrões de URL para o aplicativo do blog
+    path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(pattern_name='admin:login')),
+    path('blog/', include('blog.urls')),  # Rotas do aplicativo de blog
 ]
-
-if settings.DEBUG:
-    urlpatterns += staticfiles_urlpatterns()
