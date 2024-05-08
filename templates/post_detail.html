@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4 mt-3 rounded-top-left">
+      <div class="card-body">
+        <h1>{{ post.title }}</h1>
+        <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
+        <p class="card-text">{{ post.content | safe }}</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'barra_lateral.html' %} {% endblock %}
+  </div>
+</div>
+
+{% endblock %}

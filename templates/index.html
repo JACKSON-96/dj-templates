@@ -1,12 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-<body>
-    <h1>Bem-vindo ao Blog!</h1>
-    <!-- Conteúdo do blog aqui -->
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: rgb(221, 4, 4);
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #dde0e2;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class="site-heading my-4 mt-3 text-white">Bem-vindo ao meu incrível blog</h3>
+                    <p class="text-light">Nós amamos Django tanto quanto você..!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Coluna de entradas do blog -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }}</p>
+                    <p class="card-text">{{ post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Leia mais →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'barra_lateral.html' %} {% endblock %}
+    </div>
+</div>
+{% endblock %}

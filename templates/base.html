@@ -1,22 +1,77 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="icon" href="{% static 'admin/favicon_io/favicon.ico' %}" type="image/x-icon">
-    <link rel="shortcut icon" href="{% static 'admin/favicon_io/favicon.ico' %}" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{% static 'css.css' %}">
-</head>
-<body>
-    <h1>Meu Projeto Django</h1>
 
+<head>
+    <title>Back-end Python - EBAC</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous" />
+    <style>
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+        }
+        /* Estilos para o conteúdo central */
+        .content {
+            background-color: #0e0d0d; /* Branco 
+            width: 800px; */
+        }
+/* Estilos para o rodapé */
+footer {
+    background-color: #e133c4;
+   
+    color: #0b67f1; /* Cor do texto branco */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Django central</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'politica' %}">Política</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contato' %}">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Faixa cinza escuro -->
+    <div class="gray-strip"></div>
+
+    <!-- Conteúdo central -->
     <div class="content">
         {% block content %}
-        {% endblock %}
+        {% endblock content %}
     </div>
-    
+
+    <!-- Rodapé -->
     <footer>
-        Este é o rodapé do projeto.
+            <p>Back-end Python - EBAC</p>
     </footer>
+    
+
+
 </body>
+
 </html>

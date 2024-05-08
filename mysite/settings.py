@@ -1,8 +1,6 @@
-from pathlib import Path
-import os
+from pathlib import Path, os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-(j-_gn99okx_u=fi6l9426b4e6xu!)o)l6z+!k+mu_pcs(t2$0'
 
 DEBUG = True
@@ -35,9 +33,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'templates',
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Corrigido o caminho para o diretório templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -52,12 +48,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+# Caminho do banco de dados usando os.path.join()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

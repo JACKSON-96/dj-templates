@@ -1,0 +1,43 @@
+{% block barra_lateral %}
+<!-- Esta seção de código define um único widget "Sobre nós" na barra lateral -->
+<div class="container">
+    <!-- Início do container -->
+
+    <div class="row">
+        <!-- Início da linha -->
+
+        <div class="col-md-8">
+            <!-- Define a largura da coluna como 8 em telas médias e maiores -->
+            
+            <div class="cartão my-4">
+                <!-- Define um cartão com margem superior -->
+                
+                <h5 class="card-header" style="background-color: #007bff; color: #fff;">Sobre nós</h5>
+                <!-- Define o cabeçalho do cartão como "Sobre nós" e estiliza com uma cor de fundo azul e texto branco -->
+
+                <div class="corpo-cartão" style="background-color: #f8f9fa; padding: 10px;">
+                    <!-- Define o corpo do cartão e estiliza com uma cor de fundo clara e preenchimento -->
+
+                    <p class="card-text">Bem-vindo à nossa página "Sobre nós"! Somos uma equipe dedicada a criar incríveis aplicativos web com Django. Fique à vontade para nos contatar se tiver alguma dúvida ou sugestão.</p>
+                    <!-- Define o texto dentro do cartão -->
+
+                    <a href="{% url 'saiba_mais' %}" class="btn btn-danger">Saiba mais!</a>
+                    <!-- Define um botão para "Saiba mais!" -->
+
+                </div>
+                <!-- Fecha a div do corpo do cartão -->
+
+            </div>
+            <!-- Fecha a div do cartão -->
+
+        </div>
+        <!-- Fecha a coluna -->
+
+    </div>
+    <!-- Fecha a linha -->
+
+</div>
+<!-- Fecha o container -->
+
+{% endblock %}
+<!-- Finaliza o bloco da barra lateral -->
